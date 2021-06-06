@@ -1,13 +1,14 @@
+import { Routing } from "pages";
+import { withProviders } from "./providers";
 import './index.scss';
 
 const App = () => {
   return (
     <div>
-      <header>
-        Todo App
-      </header>
+      <header>Todo App</header>
+      <Routing />
     </div>
   );
 }
 
-export default App;
+export default withProviders(App);
