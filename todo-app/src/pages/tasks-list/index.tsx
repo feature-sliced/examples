@@ -11,8 +11,7 @@ const TasksListPage = () => {
 
     return (
         <Layout>
-            {/* ~ Layout.Toolbar */}
-            <Layout>
+            <Layout> {/* ~ Layout.Toolbar */}
                 <TasksFilters loading={isLoading} />
             </Layout>
             <Layout.Content>
