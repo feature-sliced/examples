@@ -1,5 +1,5 @@
 import { useStore, useStoreMap } from "effector-react";
-import { $tasks } from "./store";
+import { $tasks, $queryConfig } from "./store";
 import { getTaskByIdFx } from "./effects";
 
 export const useTasks = () => {
@@ -20,4 +20,8 @@ export const useTasksLoading = () => {
 
 export const useTask = (taskId: number) => {
     return useTasks()[taskId];
+};
+
+export const useQueryConfig = () => {
+    return useStore($queryConfig);
 };
