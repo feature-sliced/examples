@@ -17,3 +17,7 @@ export const useTasksList = () => {
 export const useTasksLoading = () => {
     return useStore(getTaskByIdFx.pending);
 };
+
+export const useTask = (taskId: number) => {
+    return useTasks()[taskId];
+};
