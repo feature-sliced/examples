@@ -1,6 +1,7 @@
 import type { PropsWithChildren } from "react";
 import { Card } from "antd"; // ~ "shared/ui/card"
 import { Link } from "react-router-dom";
+import styles from "./styles.module.scss";
 
 export type TaskCardProps = PropsWithChildren<{
     data: import("shared/api").Task;
@@ -13,6 +14,7 @@ export const TaskCard = ({ data, titleHref, children, ...cardProps }: TaskCardPr
     return (
         <Card
             title={title}
+            className={styles.root}
             {...cardProps}
         >
             {children}

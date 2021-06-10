@@ -3,10 +3,11 @@ import { taskModel } from "entities/task";
 
 export type ToggleTaskProps = {
     taskId: number;
+    withStatus?: boolean;
 }
 
 // resolve / unresolve
-export const ToggleTask = ({ taskId }: ToggleTaskProps) => {
+export const ToggleTask = ({ taskId, withStatus = true }: ToggleTaskProps) => {
     const task = taskModel.selectors.useTask(taskId);
     if (!task) return null;
 
@@ -17,7 +18,7 @@ export const ToggleTask = ({ taskId }: ToggleTaskProps) => {
             onClick={() => taskModel.events.toggleTask(taskId)} 
             checked={task.completed}
         >
-            {status}
+            {withStatus && status}
         </Checkbox>
     )
 }
