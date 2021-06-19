@@ -12,7 +12,6 @@ export const TaskCard = ({ data, titleHref, children, ...cardProps }: TaskCardPr
     // Можно обработать и получше при желании
     if (!data && !cardProps.loading) return null;
 
-    const title = titleHref ? <Link to={titleHref}>{data?.title}</Link> : data?.title
     return (
         <Card
             // Можно обработать и получше при желании
@@ -20,7 +19,7 @@ export const TaskCard = ({ data, titleHref, children, ...cardProps }: TaskCardPr
             className={styles.root}
             {...cardProps}
         >
-            {title}
+            {titleHref ? <Link to={titleHref}>{data?.title}</Link> : data?.title}
             {children}
         </Card>
     );

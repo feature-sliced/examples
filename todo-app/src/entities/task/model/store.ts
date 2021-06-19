@@ -8,7 +8,7 @@ export const taskSchema = new schema.Entity("tasks");
 
 export const tasksInitialState: Record<number, import("shared/api").Task> = {};
 
-// В рамках демо некритично, но вполне возможно, что стоило бы хранить отдельно массив TaskId[]
+// В рамках демо некритично, но можно хранить и в виде массива без нормализации
 export const $tasks = createStore(tasksInitialState)
   .on(getTasksListFx.doneData, (_, payload) => normalize(payload.data, [taskSchema]).entities.tasks)
   .on(getTaskByIdFx.doneData, (state, payload) => ({
@@ -26,6 +26,6 @@ export const $tasks = createStore(tasksInitialState)
       }
   })
 
-//   Можно вынести в отдельную директорию (для хранения нескольких моделей)
+// Можно вынести в отдельную директорию (для хранения нескольких моделей)
 export const $queryConfig = createStore<QueryConfig>({})
   .on(setQueryConfig, (_, payload) => payload)
