@@ -7,7 +7,7 @@ import styles from "./styles.module.scss";
 
 const TasksListPage = () => {
     const tasks = taskModel.selectors.useTasksListFiltered();
-    const isLoading = taskModel.selectors.useTasksLoading();
+    const isLoading = taskModel.selectors.useLoading().tasksList;
 
     useEffect(() => {
         taskModel.effects.getTasksListFx();

@@ -4,19 +4,22 @@ import { Link } from "react-router-dom";
 import styles from "./styles.module.scss";
 
 export type TaskCardProps = PropsWithChildren<{
-    data: import("shared/api").Task;
+    data?: import("shared/api").Task;
     titleHref?: string;
 }> & import("antd").CardProps;
 
 export const TaskCard = ({ data, titleHref, children, ...cardProps }: TaskCardProps) => {
-    const title = titleHref ? <Link to={titleHref}>{data.title}</Link> : data.title
+    // Можно обработать и получше при желании
+    if (!data && !cardProps.loading) return null;
 
+    const title = titleHref ? <Link to={titleHref}>{data?.title}</Link> : data?.title
     return (
         <Card
-            title={title}
+            title={`Task#${data?.id}`}
             className={styles.root}
             {...cardProps}
         >
+            {title}
             {children}
         </Card>
     );

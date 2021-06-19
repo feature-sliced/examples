@@ -1,6 +1,6 @@
 import { createStore } from "effector";
 import { normalize, schema } from "normalizr";
-import { getTasksListFx } from "./effects";
+import { getTasksListFx, getTaskByIdFx } from "./effects";
 import { toggleTask, setQueryConfig } from "./events";
 import { QueryConfig } from "./types";
 
@@ -10,7 +10,11 @@ export const tasksInitialState: Record<number, import("shared/api").Task> = {};
 
 // В рамках демо некритично, но вполне возможно, что стоило бы хранить отдельно массив TaskId[]
 export const $tasks = createStore(tasksInitialState)
-  .on(getTasksListFx.doneData, (_, tasks) => normalize(tasks.data, [taskSchema]).entities.tasks)
+  .on(getTasksListFx.doneData, (_, payload) => normalize(payload.data, [taskSchema]).entities.tasks)
+  .on(getTaskByIdFx.doneData, (state, payload) => ({
+    ...state,
+    ...normalize(payload.data, taskSchema).entities.tasks,
+  }))
   .on(toggleTask, (state, taskId) => {
       const task = state[taskId];
       return {

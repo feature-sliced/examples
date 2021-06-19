@@ -1,6 +1,6 @@
 import { useStore, useStoreMap } from "effector-react";
 import { $tasks, $queryConfig } from "./store";
-import { getTaskByIdFx } from "./effects";
+import { getTaskByIdFx, getTasksListFx } from "./effects";
 
 export const useQueryConfig = () => {
     return useStore($queryConfig);
@@ -32,11 +32,17 @@ export const useTasksListFiltered = () => {
     ));
 };
 
-export const useTasksLoading = () => {
-    return useStore(getTaskByIdFx.pending);
+/**
+ * @remark Можно добавить потенциально debounce логику
+ */
+export const useLoading = () => {
+    const tasksList = useStore(getTasksListFx.pending);
+    const taskDetails = useStore(getTaskByIdFx.pending);
+    return {tasksList, taskDetails}
 };
 
-export const useTask = (taskId: number) => {
+
+export const useTask = (taskId: number): import("shared/api").Task | undefined => {
     return useTasks()[taskId];
 };
 
