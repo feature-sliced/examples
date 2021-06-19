@@ -1,6 +1,6 @@
-# Getting Started with Create React App
+# TodoApp (QuickStart)
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+https://feature-sliced.design/docs/get-started/quick-start
 
 ## Available Scripts
 
