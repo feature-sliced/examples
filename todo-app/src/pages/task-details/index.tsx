@@ -19,6 +19,7 @@ const TaskDetailsPage = (props: Props) => {
         taskModel.effects.getTaskByIdFx({ taskId });
     }, [taskId]);
 
+    // Можно часть логики перенести в entity/task/card (как контейнер)
     if (!task && !isLoading) {
         return (
             <Result 
