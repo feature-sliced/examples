@@ -1,6 +1,6 @@
 import { useEffect } from "react";
 import { Link } from "react-router-dom";
-import { Layout, Result, Button, Row, Spin } from "antd"; // ~ "shared/ui/{...}"
+import { Layout, Result, Button } from "antd"; // ~ "shared/ui/{...}"
 
 import { ToggleTask } from "features/toggle-task";
 import { TaskCard, taskModel } from "entities/task";
@@ -30,9 +30,6 @@ const TaskDetailsPage = (props: Props) => {
         )
     }
 
-    // Можно обработать и лучше
-    if (isLoading) return <Placeholder />
-
     return (
         <Layout className={styles.root}>
             <Layout.Content className={styles.content}>
@@ -51,13 +48,5 @@ const TaskDetailsPage = (props: Props) => {
         </Layout>
     )
 };
-
-const Placeholder = () => (
-    <Layout className={styles.root}>
-        <Row justify="center" align="middle" style={{ height: "100vh" }}>
-            <Spin size="large" />
-        </Row>
-    </Layout>
-);
 
 export default TaskDetailsPage;

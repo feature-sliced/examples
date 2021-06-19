@@ -13,13 +13,13 @@ export const filters: Record<number, Filter> = {
     },
     2: {
         id: 2,
-        title: "Closed",
-        config: { completed: true },
+        title: "Opened",
+        config: { completed: false },
     },
     3: {
         id: 3,
-        title: "Opened",
-        config: { completed: false },
+        title: "Closed",
+        config: { completed: true },
     },
 };
 

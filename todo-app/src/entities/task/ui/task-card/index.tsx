@@ -15,7 +15,8 @@ export const TaskCard = ({ data, titleHref, children, ...cardProps }: TaskCardPr
     const title = titleHref ? <Link to={titleHref}>{data?.title}</Link> : data?.title
     return (
         <Card
-            title={`Task#${data?.id}`}
+            // Можно обработать и получше при желании
+            title={`Task#${cardProps.loading ? "" : data?.id}`}
             className={styles.root}
             {...cardProps}
         >

@@ -2,7 +2,7 @@ import { useEffect } from "react";
 import { TasksFilters } from "features/tasks-filters";
 import { ToggleTask } from "features/toggle-task";
 import { TaskRow, taskModel } from "entities/task";
-import { Layout, Row, Col, Typography } from "antd"; // ~ "shared/ui/{layout, row, col, typography}"
+import { Layout, Row, Col, Typography, Spin, Empty } from "antd"; // ~ "shared/ui/{...}"
 import styles from "./styles.module.scss";
 
 const TasksListPage = () => {
@@ -24,16 +24,18 @@ const TasksListPage = () => {
                 </Row>
             </Layout>
             <Layout.Content className={styles.content}>
-                <Row gutter={[0, 20]}>
-                {tasks.map((task) => (
-                    <Col key={task.id} span={24}>
-                        <TaskRow 
-                            data={task}
-                            titleHref={`/${task.id}`}
-                            before={<ToggleTask taskId={task.id} withStatus={false} />}
-                        />
-                    </Col>
-                ))}
+                <Row gutter={[0, 20]} justify="center">
+                    {isLoading && <Spin size="large" />}
+                    {!isLoading && tasks.map((task) => (
+                        <Col key={task.id} span={24}>
+                            <TaskRow 
+                                data={task}
+                                titleHref={`/${task.id}`}
+                                before={<ToggleTask taskId={task.id} withStatus={false} />}
+                            />
+                        </Col>
+                    ))}
+                    {!isLoading && !tasks.length && <Empty description="No tasks found" />}
                 </Row>
             </Layout.Content>
         </Layout>
