@@ -1,5 +1,6 @@
 import { createStore } from "effector";
 import { normalize, schema } from "normalizr";
+import produce from "immer";
 import { getTasksListFx, getTaskByIdFx } from "./effects";
 import { toggleTask, setQueryConfig } from "./events";
 import { QueryConfig } from "./types";
@@ -15,16 +16,10 @@ export const $tasks = createStore(tasksInitialState)
     ...state,
     ...normalize(payload.data, taskSchema).entities.tasks,
   }))
-  .on(toggleTask, (state, taskId) => {
-      const task = state[taskId];
-      return {
-          ...state,
-          [taskId]: {
-              ...task,
-              completed: !task.completed
-          }
-      }
-  })
+  .on(toggleTask, (state, taskId) => produce(state, draft => {
+    const task = draft[taskId];
+    task.completed = !task.completed;
+  }))
 
 // Можно вынести в отдельную директорию (для хранения нескольких моделей)
 export const $queryConfig = createStore<QueryConfig>({})
