@@ -1,7 +1,7 @@
 export type Filter = {
     id: number;
     title: string;
-    config: import("entities/task").taskModel.QueryConfig;
+    config: import("entities/task").taskModel.queryConfig.QueryConfig;
 }
 
 // Описываем здесь датасет фильтров "Закрытые" / "Открытые" и т.п.

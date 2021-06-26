@@ -10,7 +10,7 @@ const TasksListPage = () => {
     const isLoading = taskModel.selectors.useLoading().tasksList;
 
     useEffect(() => {
-        taskModel.effects.getTasksListFx();
+        taskModel.tasks.getTasksListFx();
     }, []);
 
     return (
