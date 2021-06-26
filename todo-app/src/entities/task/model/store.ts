@@ -1,4 +1,4 @@
-import { createStore } from "effector";
+import { createStore, combine } from "effector";
 import { normalize, schema } from "normalizr";
 import produce from "immer";
 import { getTasksListFx, getTaskByIdFx } from "./effects";
@@ -24,3 +24,34 @@ export const $tasks = createStore(tasksInitialState)
 // Можно вынести в отдельную директорию (для хранения нескольких моделей)
 export const $queryConfig = createStore<QueryConfig>({})
   .on(setQueryConfig, (_, payload) => payload)
+
+/**
+ * @remark Можно добавить потенциально debounce логику
+ */
+export const $loading = combine(
+  getTasksListFx.pending, 
+  getTaskByIdFx.pending, 
+  (tasksList, taskDetails) => ({
+    tasksList,
+    taskDetails,
+  })
+);
+
+/** "Список" задач */
+export const $tasksList = combine($tasks, (tasks) => Object.values(tasks));
+
+/**
+ * Отфильтрованные таски
+ * @remark Можно разруливать на уровне эффектов - но тогда нужно подключать дополнительную логику в стор
+ * > Например скрывать/показывать таск при `toggleTask` событии
+ */
+export const $tasksFiltered = combine(
+  $tasksList,
+  $queryConfig,
+  (tasksList, config) => {
+    return tasksList.filter(task => (
+      config.completed === undefined ||
+      task.completed === config.completed
+  ));
+  }
+);

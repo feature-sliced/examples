@@ -1,6 +1,7 @@
 import { useEffect } from "react";
 import { Link } from "react-router-dom";
 import { Layout, Result, Button } from "antd"; // ~ "shared/ui/{...}"
+import { useStore } from "effector-react";
 
 import { ToggleTask } from "features/toggle-task";
 import { TaskCard, taskModel } from "entities/task";
@@ -12,8 +13,8 @@ type Props = import("react-router-dom").RouteChildrenProps<{
 
 const TaskDetailsPage = (props: Props) => {
     const taskId = Number(props.match?.params.taskId);
-    const task = taskModel.selectors.useTask(taskId);
-    const isLoading = taskModel.selectors.useLoading().taskDetails;
+    const task = taskModel.selectors.selectTaskById(taskId);
+    const isLoading = useStore(taskModel.store.$loading).taskDetails;
 
     useEffect(() => {
         taskModel.effects.getTaskByIdFx({ taskId });

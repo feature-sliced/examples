@@ -8,7 +8,8 @@ export type ToggleTaskProps = {
 
 // resolve / unresolve
 export const ToggleTask = ({ taskId, withStatus = true }: ToggleTaskProps) => {
-    const task = taskModel.selectors.useTask(taskId);
+    const task = taskModel.selectors.selectTaskById(taskId);
+
     if (!task) return null;
 
     const status = taskLib.getTaskStatus(task);

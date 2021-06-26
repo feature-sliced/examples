@@ -1,13 +1,15 @@
 import { useEffect } from "react";
+import { Layout, Row, Col, Typography, Spin, Empty } from "antd"; // ~ "shared/ui/{...}"
+import { useStore } from "effector-react";
+
 import { TasksFilters } from "features/tasks-filters";
 import { ToggleTask } from "features/toggle-task";
 import { TaskRow, taskModel } from "entities/task";
-import { Layout, Row, Col, Typography, Spin, Empty } from "antd"; // ~ "shared/ui/{...}"
 import styles from "./styles.module.scss";
 
 const TasksListPage = () => {
-    const tasks = taskModel.selectors.useTasksListFiltered();
-    const isLoading = taskModel.selectors.useLoading().tasksList;
+    const tasks = useStore(taskModel.store.$tasksFiltered);
+    const isLoading = useStore(taskModel.store.$loading).tasksList;
 
     useEffect(() => {
         taskModel.effects.getTasksListFx();
