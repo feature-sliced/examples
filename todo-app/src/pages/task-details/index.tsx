@@ -16,7 +16,7 @@ const TaskDetailsPage = (props: Props) => {
     const isLoading = taskModel.selectors.useLoading().taskDetails;
 
     useEffect(() => {
-        taskModel.tasks.getTaskByIdFx({ taskId });
+        taskModel.effects.getTaskByIdFx({ taskId });
     }, [taskId]);
 
     // Можно часть логики перенести в entity/task/card (как контейнер)
