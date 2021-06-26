@@ -15,7 +15,7 @@ type Props = {
 const View = ({ isLoading, tasks }: Props) => {
 
     useEffect(() => {
-        taskModel.tasks.effects.getTasksListFx();
+        taskModel.effects.getTasksListFx();
     }, []);
 
     return (
@@ -50,8 +50,8 @@ const View = ({ isLoading, tasks }: Props) => {
 const TasksListPage = reflect({
     view: View,
     bind: {
-        tasks: taskModel.tasks.$tasksFiltered,
-        isLoading: taskModel.tasks.$tasksListLoading,
+        tasks: taskModel.$tasksFiltered,
+        isLoading: taskModel.$tasksListLoading,
     }
 });
 

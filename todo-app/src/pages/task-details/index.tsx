@@ -15,10 +15,10 @@ type Props = import("react-router-dom").RouteChildrenProps<{
 
 const View = ({ match, isLoading }: Props) => {
     const taskId = Number(match?.params.taskId);
-    const task = taskModel.tasks.selectors.useTask(taskId);
+    const task = taskModel.selectors.useTask(taskId);
 
     useEffect(() => {
-        taskModel.tasks.effects.getTaskByIdFx({ taskId });
+        taskModel.effects.getTaskByIdFx({ taskId });
     }, [taskId]);
 
     // Можно часть логики перенести в entity/task/card (как контейнер)
@@ -55,7 +55,7 @@ const View = ({ match, isLoading }: Props) => {
 const TaskDetailsPage = reflect({
     view: View,
     bind: {
-        isLoading: taskModel.tasks.$taskDetailsLoading,
+        isLoading: taskModel.$taskDetailsLoading,
     }
 });
 

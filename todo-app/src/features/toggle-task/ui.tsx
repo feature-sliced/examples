@@ -8,7 +8,7 @@ export type ToggleTaskProps = {
 
 // resolve / unresolve
 export const ToggleTask = ({ taskId, withStatus = true }: ToggleTaskProps) => {
-    const task = taskModel.tasks.selectors.useTask(taskId);
+    const task = taskModel.selectors.useTask(taskId);
 
     if (!task) return null;
 
@@ -16,7 +16,7 @@ export const ToggleTask = ({ taskId, withStatus = true }: ToggleTaskProps) => {
 
     return (
         <Checkbox 
-            onClick={() => taskModel.tasks.events.toggleTask(taskId)} 
+            onClick={() => taskModel.events.toggleTask(taskId)} 
             checked={task.completed}
         >
             {withStatus && status}
