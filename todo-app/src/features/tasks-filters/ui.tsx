@@ -13,7 +13,7 @@ export const TasksFilters = ({ loading }: Props) => {
             {filtersList.map(({ title, id }) => (
                 <Radio.Button 
                     key={id} 
-                    onClick={() => taskModel.events.setQueryConfig(getFilterById(id).config)}
+                    onClick={() => taskModel.tasks.events.setQueryConfig(getFilterById(id).config)}
                     value={id}
                     disabled={loading}
                 >

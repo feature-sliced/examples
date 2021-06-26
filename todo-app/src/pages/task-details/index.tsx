@@ -1,7 +1,7 @@
 import { useEffect } from "react";
 import { Link } from "react-router-dom";
 import { Layout, Result, Button } from "antd"; // ~ "shared/ui/{...}"
-import { useStore } from "effector-react";
+import { reflect } from "@effector/reflect";
 
 import { ToggleTask } from "features/toggle-task";
 import { TaskCard, taskModel } from "entities/task";
@@ -9,15 +9,16 @@ import styles from "./styles.module.scss";
 
 type Props = import("react-router-dom").RouteChildrenProps<{
     taskId: string;
-}>;
+}> & {
+    isLoading: boolean;
+};
 
-const TaskDetailsPage = (props: Props) => {
-    const taskId = Number(props.match?.params.taskId);
-    const task = taskModel.selectors.selectTaskById(taskId);
-    const isLoading = useStore(taskModel.store.$loading).taskDetails;
+const View = ({ match, isLoading }: Props) => {
+    const taskId = Number(match?.params.taskId);
+    const task = taskModel.tasks.selectors.useTask(taskId);
 
     useEffect(() => {
-        taskModel.effects.getTaskByIdFx({ taskId });
+        taskModel.tasks.effects.getTaskByIdFx({ taskId });
     }, [taskId]);
 
     // Можно часть логики перенести в entity/task/card (как контейнер)
@@ -50,5 +51,12 @@ const TaskDetailsPage = (props: Props) => {
         </Layout>
     )
 };
+
+const TaskDetailsPage = reflect({
+    view: View,
+    bind: {
+        isLoading: taskModel.tasks.$taskDetailsLoading,
+    }
+});
 
 export default TaskDetailsPage;

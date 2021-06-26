@@ -1,18 +1,21 @@
 import { useEffect } from "react";
 import { Layout, Row, Col, Typography, Spin, Empty } from "antd"; // ~ "shared/ui/{...}"
-import { useStore } from "effector-react";
+import { reflect } from "@effector/reflect";
 
 import { TasksFilters } from "features/tasks-filters";
 import { ToggleTask } from "features/toggle-task";
 import { TaskRow, taskModel } from "entities/task";
 import styles from "./styles.module.scss";
 
-const TasksListPage = () => {
-    const tasks = useStore(taskModel.store.$tasksFiltered);
-    const isLoading = useStore(taskModel.store.$loading).tasksList;
+type Props = {
+    isLoading: boolean;
+    tasks: import("shared/api").Task[];
+};
+
+const View = ({ isLoading, tasks }: Props) => {
 
     useEffect(() => {
-        taskModel.effects.getTasksListFx();
+        taskModel.tasks.effects.getTasksListFx();
     }, []);
 
     return (
@@ -43,5 +46,13 @@ const TasksListPage = () => {
         </Layout>
     )
 }
+
+const TasksListPage = reflect({
+    view: View,
+    bind: {
+        tasks: taskModel.tasks.$tasksFiltered,
+        isLoading: taskModel.tasks.$tasksListLoading,
+    }
+});
 
 export default TasksListPage;
