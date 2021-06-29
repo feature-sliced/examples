@@ -11,7 +11,6 @@ const TasksListPage = () => {
   return (
     <Layout className={styles.root}>
       <Layout className={styles.toolbar}>
-        {" "}
         {/* ~ Layout.Toolbar */}
         <Row justify="center">
           <Typography.Title level={1}>Tasks List</Typography.Title>
@@ -29,9 +28,7 @@ const TasksListPage = () => {
   );
 };
 
-const ListItemView: React.FC<{
-  task: import("shared/api").Task;
-}> = ({ task }) => {
+const ListItemView: React.FC<{ task: import("shared/api").Task }> = ({ task }) => {
   return (
     <Col key={task.id} span={24}>
       <TaskRow
@@ -43,6 +40,7 @@ const ListItemView: React.FC<{
   );
 };
 
+// Использование effector-reflect здесь опционально и некритично в рамках методологии
 const TasksList = list({
   view: ListItemView,
   source: taskModel.$tasksFiltered,
@@ -51,7 +49,7 @@ const TasksList = list({
     task: (task) => task,
   },
 });
-
+// Использование effector-reflect здесь опционально и некритично в рамках методологии
 const PageContent = variant({
   source: combine(
     {
@@ -60,8 +58,7 @@ const PageContent = variant({
     },
     ({ isLoading, isEmpty }) => {
       if (isLoading) return "loading";
-      if (!isLoading && isEmpty) return "empty";
-
+      if (isEmpty) return "empty";
       return "ready";
     }
   ),

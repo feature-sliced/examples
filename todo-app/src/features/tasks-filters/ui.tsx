@@ -9,7 +9,7 @@ type Props = {
   onFilterClick: (p: taskModel.QueryConfig) => void;
 };
 
-const TasksFiltersView = ({ loading, onFilterClick }: Props) => {
+const View = ({ loading, onFilterClick }: Props) => {
   return (
     <Radio.Group defaultValue={DEFAULT_FILTER} buttonStyle="solid">
       {filtersList.map(({ title, id }) => (
@@ -27,7 +27,7 @@ const TasksFiltersView = ({ loading, onFilterClick }: Props) => {
 };
 
 export const TasksFilters = reflect({
-  view: TasksFiltersView,
+  view: View,
   bind: {
     loading: taskModel.$tasksListLoading,
     onFilterClick: taskModel.events.setQueryConfig,
