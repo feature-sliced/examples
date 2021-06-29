@@ -77,12 +77,7 @@ export const $tasksFiltered = combine(
 
 export const $tasksListEmpty = $tasksFiltered.map((list) => list.length === 0);
 
-/** 
- * @remark Не стоит напрямую использовать в react-компонентах (т.к. иначе не будет считываться обновление данных)
- */
-const selectTaskById = (taskId: number): import("shared/api").Task | undefined => {
-  return $tasks.getState()[taskId];
-};
+// При желании можно завести отдельный селектор, не завязанный на react биндинги
 const useTask = (taskId: number): import("shared/api").Task | undefined => {
   return useStore($tasks)[taskId];
 };
@@ -98,6 +93,5 @@ export const effects = {
 };
 
 export const selectors = {
-  selectTaskById,
   useTask,
 };

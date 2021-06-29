@@ -52,6 +52,7 @@ const View = ({ match, isLoading }: Props) => {
     )
 };
 
+// Использование effector-reflect здесь опционально и некритично в рамках методологии
 const TaskDetailsPage = reflect({
     view: View,
     bind: {
