@@ -1,0 +1,61 @@
+{
+  "name": "todo-app",
+  "version": "0.1.0",
+  "private": true,
+  "dependencies": {
+    "@ant-design/icons": "^4.6.2",
+    "@effector/reflect": "^0.6.0",
+    "@testing-library/jest-dom": "^5.13.0",
+    "@testing-library/react": "^11.2.7",
+    "@testing-library/user-event": "^12.8.3",
+    "@types/jest": "^26.0.23",
+    "@types/node": "^12.20.14",
+    "@types/react": "^17.0.9",
+    "@types/react-dom": "^17.0.6",
+    "antd": "^4.16.2",
+    "axios": "^0.21.1",
+    "classnames": "^2.3.1",
+    "compose-function": "^3.0.3",
+    "effector": "^21.8.11",
+    "effector-react": "^21.3.2",
+    "immer": "^8.0.1",
+    "normalizr": "^3.6.1",
+    "react": "^17.0.2",
+    "react-dom": "^17.0.2",
+    "react-router": "^5.2.0",
+    "react-router-dom": "^5.2.0",
+    "react-scripts": "4.0.3",
+    "sass": "^1.34.1",
+    "typescript": "^4.3.2",
+    "web-vitals": "^1.1.2"
+  },
+  "scripts": {
+    "start": "react-scripts start",
+    "build": "react-scripts build",
+    "test": "react-scripts test",
+    "eject": "react-scripts eject"
+  },
+  "eslintConfig": {
+    "extends": [
+      "react-app",
+      "react-app/jest"
+    ]
+  },
+  "browserslist": {
+    "production": [
+      ">0.2%",
+      "not dead",
+      "not op_mini all"
+    ],
+    "development": [
+      "last 1 chrome version",
+      "last 1 firefox version",
+      "last 1 safari version"
+    ]
+  },
+  "devDependencies": {
+    "@types/compose-function": "^0.0.30",
+    "@types/react-router": "^5.1.14",
+    "@types/react-router-dom": "^5.1.7"
+  }
+}

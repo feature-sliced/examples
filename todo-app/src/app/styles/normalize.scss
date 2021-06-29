@@ -1,0 +1,32 @@
+html,
+body,
+#root,
+.app {
+    position: relative;
+    height: 100%;
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+// scrollbar
+::-webkit-scrollbar {
+    width: 8px;
+    height: 8px;
+    background-color: transparent;
+
+    &-track {
+        background-color: transparent;
+        border-radius: 5px;
+    }
+
+    &-thumb {
+        background-color: #a6b2c3;
+        border-radius: 5px;
+    }
+
+    &-corner {
+        background-color: #ffffff;
+    }
+}
