@@ -26,6 +26,7 @@ const View = ({ loading, onFilterClick }: Props) => {
   );
 };
 
+// Использование effector-reflect здесь опционально и некритично в рамках методологии
 export const TasksFilters = reflect({
   view: View,
   bind: {
