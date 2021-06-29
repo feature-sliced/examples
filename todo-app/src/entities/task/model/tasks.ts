@@ -75,6 +75,8 @@ export const $tasksFiltered = combine(
   ))},
 );
 
+export const $tasksListEmpty = $tasksFiltered.map((list) => list.length === 0);
+
 /** 
  * @remark Не стоит напрямую использовать в react-компонентах (т.к. иначе не будет считываться обновление данных)
  */
