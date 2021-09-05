@@ -1,6 +1,6 @@
 # TodoApp (QuickStart)
 
-https://feature-sliced.design/docs/get-started/quick-start
+<https://feature-sliced.design/docs/get-started/quick-start>
 
 ## Available Scripts
 
