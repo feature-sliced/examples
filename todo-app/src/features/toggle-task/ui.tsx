@@ -1,5 +1,7 @@
 import { Checkbox } from "antd"; // ~ "shared/ui/checkbox"
+
 import { taskModel, taskLib } from "entities/task";
+import { toggleTaskModel } from '.';
 
 export type ToggleTaskProps = {
     taskId: number;
@@ -15,8 +17,8 @@ export const ToggleTask = ({ taskId, withStatus = true }: ToggleTaskProps) => {
     const status = taskLib.getTaskStatus(task);
 
     return (
-        <Checkbox 
-            onClick={() => taskModel.events.toggleTask(taskId)} 
+        <Checkbox
+            onClick={() => toggleTaskModel.events.toggleTask(taskId)}
             checked={task.completed}
         >
             {withStatus && status}

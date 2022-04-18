@@ -1,7 +1,6 @@
 import { createStore, combine, createEffect, createEvent } from "effector";
 import { useStore } from "effector-react";
 import { normalize, schema } from "normalizr";
-import produce from "immer";
 
 import { typicodeApi } from "shared/api";
 import type { Task } from "shared/api";
@@ -12,7 +11,6 @@ export type QueryConfig = {
 };
 
 
-const toggleTask = createEvent<number>();
 const setQueryConfig = createEvent<QueryConfig>();
 
 
@@ -39,11 +37,6 @@ export const $tasks = createStore(tasksInitialState)
     ...state,
     ...normalizeTask(payload.data).entities.tasks,
   }))
-  .on(toggleTask, (state, taskId) => produce(state, draft => {
-    const task = draft[taskId];
-    task.completed = !task.completed;
-    console.log(1, { taskId, state, draft: draft[taskId].completed });
-  }))
 
 
 // Можно вынести в отдельную директорию (для хранения нескольких моделей)
@@ -55,8 +48,8 @@ export const $tasksListLoading = getTasksListFx.pending;
 export const $taskDetailsLoading = getTaskByIdFx.pending;
 
 
-/** 
- * "Список" задач 
+/**
+ * "Список" задач
  */
 export const $tasksList = combine($tasks, (tasks) => Object.values(tasks));
 
@@ -82,10 +75,7 @@ const useTask = (taskId: number): import("shared/api").Task | undefined => {
   return useStore($tasks)[taskId];
 };
 
-export const events = {
-  toggleTask,
-  setQueryConfig,
-};
+export const events = { setQueryConfig };
 
 export const effects = {
   getTaskByIdFx,
