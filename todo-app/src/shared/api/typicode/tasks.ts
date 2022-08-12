@@ -15,6 +15,7 @@ export const getTasksList = (params?: GetTasksListParams): AxiosPromise<Task[]> 
 
 export type GetTaskByIdParams = {
     taskId: number;
+    [x: string]: any;
 };
 
 export const getTaskById = ({ taskId, ...params }: GetTaskByIdParams): AxiosPromise<Task> => {
