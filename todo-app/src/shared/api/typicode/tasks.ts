@@ -9,8 +9,8 @@ export type GetTasksListParams = {
     completed?: boolean;
 };
 
-export const getTasksList = (params?: GetTasksListParams): AxiosPromise<Task[]> => {
-    return apiInstance.get(BASE_URL, { params });
+export const getTasksList = (params?: GetTasksListParams) => {
+    return apiInstance.get<Task[]>(BASE_URL, { params });
 };
 
 export type GetTaskByIdParams = {
