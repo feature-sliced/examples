@@ -1,0 +1,5 @@
+.root {
+  padding: 25px 0;
+  display: flex;
+  gap: 12px;
+}
