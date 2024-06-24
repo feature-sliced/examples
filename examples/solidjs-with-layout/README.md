@@ -6,7 +6,7 @@ This example shows how to work work with layout (or layouts). Split layout to du
 
 ### Live preview
 
-Preview live with [StackBlitz](https://stackblitz.com/github/vercel/next.js/tree/canary/examples/api-routes-cors?file=README.md).
+Preview live with [StackBlitz](https://stackblitz.com/github/feature-sliced/examples/tree/master/examples/solidjs-with-layout?file=README.md).
 
 ### How to use
 
