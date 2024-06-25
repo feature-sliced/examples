@@ -7,11 +7,11 @@ type Props = RouteSectionProps
 /**
  * ✅ FSD Best practice:
  *
- * (1) Devide layout in two modules: dumb layout grid (`@shared/ui/Layout/*`)
+ * (1) Divide layout in two modules: dumb layout grid (`@shared/ui/Layout/*`)
  * and smart layout with widgets (this file)
  *
- * (2) Avoid cross-import with dependency inversion via render prop pattern
- * Pass widgets as props to layout
+ * (2) Avoid importing from higher layers with dependency inversion
+ * via the render prop pattern
  */
 export function BaseLayout(props: Props) {
   return (
