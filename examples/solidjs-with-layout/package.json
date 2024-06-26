@@ -1,0 +1,33 @@
+{
+  "name": "solidjs-with-layout",
+  "private": true,
+  "license": "MIT",
+  "scripts": {
+    "start": "vite",
+    "dev": "vite",
+    "build": "vite build",
+    "serve": "vite preview",
+    "lint": "eslint .",
+    "lint:fix": "eslint . --fix",
+    "lint:fsd": "steiger ./src",
+    "dep-cruiser:preview": "npx depcruise src --include-only \"^src\" --output-type dot | dot -T svg > dependency-graph-preview.svg"
+  },
+  "dependencies": {
+    "@solidjs/meta": "^0.29.4",
+    "@solidjs/router": "^0.13.6",
+    "solid-js": "^1.8.11"
+  },
+  "devDependencies": {
+    "@antfu/eslint-config": "^2.21.1",
+    "dependency-cruiser": "^16.3.3",
+    "eslint": "^9.5.0",
+    "eslint-plugin-format": "^0.1.2",
+    "eslint-plugin-solid": "^0.14.0",
+    "solid-devtools": "^0.29.2",
+    "steiger": "^0.1.2",
+    "typescript": "^5.3.3",
+    "vite": "^5.0.11",
+    "vite-plugin-solid": "^2.8.2",
+    "vite-tsconfig-paths": "^4.3.2"
+  }
+}

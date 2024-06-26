@@ -1,17 +1,12 @@
-# FeatureSliced Examples
+# Feature-Sliced Design examples
 
-Здесь хранятся примеры проектов на feature-sliced
+A collection of Feature-Sliced Examples that show how you can build applications with Feature-Sliced Design.
 
-## Inner
+## List
 
-- [TodoApp](./todo-app)
+- **[examples/react-effector-todo-app](./todo-app)** <sub>[outdated]</sub>
+- **[examples/solidjs-with-layout](./examples/solidjs-with-layout)** - shows how works with layout
 
-## RealWorld
+## Community examples — full projects
 
-В открытом доступе пока есть только такие, не все до конца адаптированы до последней версии
-
-- https://github.com/accesso-app
-- https://github.com/cardbox 
-- https://github.com/ani-team/github-client
-
-*Пока что же - можно ознакомиться с нашими [гайдами](https://feature-sliced.design/docs/guides/migration-from-v1) и [туториалами](https://feature-sliced.design/docs/get-started/quick-start)*
+You can see community contributed examples [in the showcase on the official site](https://feature-sliced.design/examples).
