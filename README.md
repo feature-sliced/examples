@@ -6,7 +6,7 @@ A collection of Feature-Sliced Examples that show how you can build applications
 
 - **[examples/react-effector-todo-app](./todo-app)** <sub>[outdated]</sub>
 - **[examples/solidjs-with-layout](./examples/solidjs-with-layout)** - shows how works with layout
-- **[examples/solidjs-with-external-api](./examples/solidjs-with-external-api)** - shows how works with external API
+- **[examples/solidjs-with-external-api](./examples/solidjs-with-external-api)** - shows how to work with external API
 
 ## Community examples — full projects
 
