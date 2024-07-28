@@ -17,9 +17,6 @@ export const ModalManagerService: ParentComponent = (props) => {
   const [store, setStoreOrigin] = createStore({ modals: [] as Array<ModalState> })
   const modals = () => store.modals.flatMap(modal => MODAL_REGISTRY[modal.id] ? { ...modal, ...MODAL_REGISTRY[modal.id] } : [])
 
-  // TODO
-  // visible={() => modal.visible}
-
   return (
     <ModalManagerServiceContext.Provider value={{ store, setStore: setStoreOrigin }}>
       <For each={modals()}>

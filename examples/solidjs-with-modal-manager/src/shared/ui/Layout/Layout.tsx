@@ -12,7 +12,7 @@ export function Layout(props: Props) {
   return (
     <MetaProvider>
       <div class={css.root} data-fsd="shared/ui/layout">
-        <Title>solidjs-with-layout</Title>
+        <Title>solidjs-with-modal-manager</Title>
         <div class={css.header}>
           {props.headerSlot}
         </div>
