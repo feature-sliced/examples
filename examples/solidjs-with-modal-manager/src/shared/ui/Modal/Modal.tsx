@@ -26,10 +26,12 @@ export function Modal(props: Props) {
 
   createEffect(() => {
     const e = event()
-
-    if (e && e.key === 'Escape' && visible) {
+    if (e && e.key === 'Escape') {
       e.preventDefault()
-      handleClose()
+
+      if (visible) {
+        handleClose()
+      }
     }
   })
 

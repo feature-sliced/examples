@@ -25,21 +25,19 @@ export function HomePage() {
       <Title>Home</Title>
       <h1>examples/solidjs-with-modal-manager</h1>
       <p>
-        Dumb layout can be placed in the shared layer, smart - in the app layer.
+        This example shows how to work with a modal manager in declarative way.
       </p>
-      <h3>Logout button</h3>
+      <h3>Open alert modal</h3>
       <p>
-        Open alert modal
         <button onClick={() => handleLogout()}>
-          Open logout modal
+          Logout
         </button>
       </p>
+      <h3>Open custom usecases modal</h3>
       <p>
         <button onClick={() => showLoginFormModal()}>
-          Open login modal
+          Login
         </button>
-        {' '}
-        (feature modal)
       </p>
     </main>
   )
