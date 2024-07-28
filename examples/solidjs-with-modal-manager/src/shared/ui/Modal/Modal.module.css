@@ -1,0 +1,40 @@
+:global(body.modalIsOpened) {
+  overflow: hidden;
+}
+
+.overlay {
+  position: fixed;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  background: #0007;
+  z-index: 100;
+}
+
+.modal {
+  min-height: 160px;
+  min-width: 320px;
+  text-align: center;
+  padding: 20px 30px;
+  position: fixed;
+  top: 50%;
+  right: 50%;
+  transform: translate(50%, -50%);
+  background: #fff;
+  box-shadow: 0 2px 8px #223c5066;
+  color: #000;
+  z-index: 101;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 16px;
+}
+
+.closeButton {
+  position: absolute;
+  top: 20px;
+  right: 12px;
+  cursor: pointer;
+}

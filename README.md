@@ -6,6 +6,7 @@ A collection of Feature-Sliced Examples that show how you can build applications
 
 - **[examples/react-effector-todo-app](./todo-app)** <sub>[outdated]</sub>
 - **[examples/solidjs-with-layout](./examples/solidjs-with-layout)** - shows how works with layout
+- **[examples/solidjs-with-modal-manager](./examples/solidjs-with-modal-manager)** - shows how to work with modal manager
 
 ## Community examples — full projects
 
