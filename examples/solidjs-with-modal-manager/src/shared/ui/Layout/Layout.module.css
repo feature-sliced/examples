@@ -1,0 +1,22 @@
+.root {
+  display: flex;
+  flex-direction: column;
+  max-width: 1024px;
+  width: calc(100% - 8px);
+  margin: 4px auto;
+  min-height: calc(100vh - 8px);
+  gap: 12px;
+}
+
+.header {
+  padding: 24px;
+}
+
+.footer {
+  padding: 24px;
+}
+
+.main {
+  padding: 24px;
+  flex-grow: 1;
+}
