@@ -9,4 +9,4 @@ A collection of Feature-Sliced Examples that show how you can build applications
 
 ## Community examples — full projects
 
-You can see community contributed examples [in the showcase on the official site](https://feature-sliced.design/examples).
+You can see community contributed examples [in the showcase on the official site](https://feature-sliced.github.io/documentation/examples).
