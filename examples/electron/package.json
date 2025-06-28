@@ -1,0 +1,40 @@
+{
+  "name": "electron",
+  "version": "1.0.0",
+  "main": "./out/main/index.js",
+  "description": "Electron application template using Feature-Sliced Design",
+  "author": {
+    "name": "Georg Krom",
+    "email": "georgykrom@gmail.com"
+  },
+  "scripts": {
+    "dev": "electron-vite dev --watch",
+    "build": "electron-vite build",
+    "build:win": "npm run build && electron-builder --win"
+  },
+  "devDependencies": {
+    "@electron-toolkit/tsconfig": "^1.0.1",
+    "@eslint/js": "^9.28.0",
+    "@feature-sliced/steiger-plugin": "^0.5.6",
+    "@stylistic/eslint-plugin": "^4.4.1",
+    "@types/node": "^22.14.1",
+    "@types/react": "^19.1.1",
+    "@types/react-dom": "^19.1.2",
+    "@vitejs/plugin-react": "^4.3.4",
+    "electron": "^35.1.5",
+    "electron-builder": "^25.1.8",
+    "electron-vite": "^3.1.0",
+    "eslint": "^9.28.0",
+    "eslint-import-resolver-typescript": "^4.4.2",
+    "eslint-plugin-import-x": "^4.15.1",
+    "eslint-plugin-react": "^7.37.5",
+    "eslint-plugin-react-hooks": "^5.2.0",
+    "react": "^19.1.0",
+    "react-dom": "^19.1.0",
+    "react-router": "^7.6.2",
+    "steiger": "^0.5.7",
+    "typescript": "^5.8.3",
+    "typescript-eslint": "^8.33.1",
+    "vite": "^6.2.6"
+  }
+}

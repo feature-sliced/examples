@@ -1,0 +1,84 @@
+body, html {
+    margin: 0;
+    height: 100%;
+    overflow: hidden;
+}
+
+.window {
+    background: #0c0c0c;
+    color: #ccc;
+    font-family: Consolas, monospace;
+    height: 100vh;
+    display: flex;
+}
+
+.content {
+    padding: 10px;
+    flex: 1;
+    overflow-y: auto;
+}
+
+.line, .menu li {
+    margin: 0;
+    padding: 2px 0;
+    white-space: pre-wrap;
+}
+
+.menu {
+    list-style: none;
+    padding: 0;
+    margin: 4px 0;
+}
+
+.prompt {
+    margin-right: 5px;
+}
+
+.link {
+    cursor: pointer;
+    color: inherit;
+    text-decoration: none;
+
+    &:hover {
+        color: #fff;
+        text-decoration: underline;
+    }
+}
+
+.outlet {
+    margin: 10px 0;
+    padding: 5px 0;
+    border: dashed #555;
+    border-width: 1px 0;
+}
+
+.cursor {
+    display: inline-block;
+    width: 8px;
+    height: 14px;
+    background: #ccc;
+    animation: blink 1s step-end infinite;
+}
+
+.input-container {
+    display: flex;
+    align-items: center;
+    margin: 10px 0;
+}
+
+.input {
+    background: transparent;
+    border: none;
+    color: #ccc;
+    font-family: Consolas, monospace;
+    font-size: inherit;
+    flex: 1;
+    outline: none;
+    padding: 0 5px;
+}
+
+@keyframes blink {
+    50% {
+        opacity: 0;
+    }
+}
