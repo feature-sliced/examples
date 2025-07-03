@@ -1,5 +1,5 @@
 import { ChangeEvent, useState } from 'react';
-import { saveUser } from '@/pages/user/ipc/save-user';
+import { saveUser } from '../ipc/save-user';
 import { getUser } from '../ipc/get-user';
 
 export const User = () => {
